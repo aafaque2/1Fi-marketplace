@@ -5,8 +5,8 @@
     "brand": "Apple",
     "category": "smartphone",
     "images": [
-      "https://placehold.co/600x600?text=iPhone+17",
-      "https://placehold.co/600x600?text=iPhone+17+Back"
+      "/images/iphone-17.jpg",
+      "/images/iphone-17-alt.jpg"
     ],
     "basePrice": 79900,
     "variants": [
@@ -26,8 +26,8 @@
     "brand": "Apple",
     "category": "smartphone",
     "images": [
-      "https://placehold.co/600x600?text=iPhone+17+Pro+Max",
-      "https://placehold.co/600x600?text=iPhone+17+Pro+Max+Back"
+      "/images/iphone-17-pro-max.jpg",
+      "/images/iphone-17-pro-max-alt.jpg"
     ],
     "basePrice": 159900,
     "variants": [
@@ -47,8 +47,8 @@
     "brand": "Samsung",
     "category": "smartphone",
     "images": [
-      "https://placehold.co/600x600?text=Galaxy+S25+Ultra",
-      "https://placehold.co/600x600?text=Galaxy+S25+Ultra+Back"
+      "/images/galaxy-s25-ultra.jpg",
+      "/images/galaxy-s25-ultra-alt.jpg"
     ],
     "basePrice": 129999,
     "variants": [
@@ -68,8 +68,8 @@
     "brand": "OnePlus",
     "category": "smartphone",
     "images": [
-      "https://placehold.co/600x600?text=OnePlus+15",
-      "https://placehold.co/600x600?text=OnePlus+15+Back"
+      "/images/oneplus-15.png",
+      "/images/oneplus-15-alt.jpg"
     ],
     "basePrice": 64999,
     "variants": [
@@ -89,8 +89,8 @@
     "brand": "Google",
     "category": "smartphone",
     "images": [
-      "https://placehold.co/600x600?text=Pixel+10",
-      "https://placehold.co/600x600?text=Pixel+10+Back"
+      "/images/pixel-10.jpg",
+      "/images/pixel-10-alt.jpg"
     ],
     "basePrice": 74999,
     "variants": [
@@ -110,8 +110,8 @@
     "brand": "Apple",
     "category": "laptop",
     "images": [
-      "https://placehold.co/600x600?text=MacBook+Air+M4",
-      "https://placehold.co/600x600?text=MacBook+Air+M4+Side"
+      "/images/macbook-air-m4.jpg",
+      "/images/macbook-air-m4-alt.jpg"
     ],
     "basePrice": 99900,
     "variants": [
