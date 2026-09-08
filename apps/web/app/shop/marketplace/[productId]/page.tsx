@@ -26,15 +26,15 @@ export default function ProductDetailPage({
     return (
       <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
         <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          <Skeleton className="aspect-square w-full" />
-          <div className="flex flex-col gap-3">
-            <Skeleton className="h-4 w-1/4" />
-            <Skeleton className="h-8 w-3/4" />
-            <Skeleton className="h-7 w-1/3" />
-            <Skeleton className="h-10 w-full" />
+          <Skeleton className="aspect-square w-full rounded-2xl" />
+          <div className="flex flex-col items-start gap-3">
+            <Skeleton className="h-6 w-1/4 rounded-2xl" />
+            <Skeleton className="h-12 w-3/4 rounded-2xl" />
+            <Skeleton className="h-8 w-1/3 rounded-2xl" />
+            <Skeleton className="h-14 w-full rounded-2xl" />
           </div>
         </div>
-        <Skeleton className="h-32 w-full" />
+        <Skeleton className="h-32 w-full rounded-2xl" />
       </main>
     );
   }
