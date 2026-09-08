@@ -39,7 +39,7 @@ export function ProductGrid({ products, isLoading, isError, onRetry, onSelect }:
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+    <div className="grid animate-fade-in grid-cols-2 gap-4 md:grid-cols-3">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} onClick={() => onSelect(product.id)} />
       ))}

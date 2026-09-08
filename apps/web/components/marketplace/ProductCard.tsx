@@ -17,14 +17,16 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
   const cheapest = plans[plans.length - 1];
 
   return (
-    <Card onClick={onClick} className="flex h-full flex-col overflow-hidden">
-      <Image
-        src={product.images[0]}
-        alt={product.name}
-        width={600}
-        height={600}
-        className="aspect-square w-full object-cover"
-      />
+    <Card onClick={onClick} className="group flex h-full flex-col overflow-hidden transition-shadow hover:shadow-md">
+      <span className="block overflow-hidden">
+        <Image
+          src={product.images[0]}
+          alt={product.name}
+          width={600}
+          height={600}
+          className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </span>
       <div className="flex flex-1 flex-col gap-1 p-4">
         <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
           {product.brand}

@@ -57,7 +57,7 @@ export default function ProductDetailPage({
   const price = product.basePrice + selected.priceDelta;
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-4 px-4 py-8">
+    <main className="mx-auto flex w-full max-w-3xl animate-fade-in flex-1 flex-col gap-4 px-4 py-8">
       <Image
         src={product.images[0]}
         alt={product.name}

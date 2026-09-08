@@ -42,7 +42,7 @@ export default function ShopPage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {options.map((option) => (
           <Link key={option.href} href={option.href} className="block">
-            <Card className="flex h-full flex-col items-start gap-3 p-5 transition-colors hover:border-brand-400">
+            <Card className="flex h-full flex-col items-start gap-3 p-5 transition-all hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-md">
               <span className="text-brand-600">{option.icon}</span>
               <span className="text-base font-semibold text-neutral-900">{option.title}</span>
               <span className="text-sm text-neutral-500">{option.subtitle}</span>

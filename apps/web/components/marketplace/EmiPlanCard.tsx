@@ -16,7 +16,7 @@ export function EmiPlanCard({ plan, selected, onSelect }: EmiPlanCardProps) {
       role="radio"
       aria-checked={selected}
       onClick={onSelect}
-      className={`flex cursor-pointer items-center justify-between gap-3 rounded-2xl border bg-white p-4 transition-colors ${
+      className={`flex cursor-pointer items-center justify-between gap-3 rounded-2xl border bg-white p-4 transition-all active:scale-[0.99] ${
         selected ? 'border-brand-600' : 'border-neutral-200 hover:border-brand-400'
       }`}
     >

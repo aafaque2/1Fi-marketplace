@@ -61,7 +61,7 @@ function EmiPageContent({ productId }: { productId: string }) {
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-4 px-4 py-8">
       <h1 className="text-2xl font-semibold text-neutral-900">Choose your EMI plan</h1>
-      <div role="radiogroup" aria-label="EMI plans" className="flex flex-col gap-3">
+      <div role="radiogroup" aria-label="EMI plans" className="flex animate-fade-in flex-col gap-3">
         {plans.map((plan) => (
           <EmiPlanCard
             key={plan.id}
