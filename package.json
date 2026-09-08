@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run build --workspace=packages/shared && concurrently \"npm run dev --workspace=apps/api\" \"npm run dev --workspace=apps/web\"",
+    "build": "npm run build --workspace=packages/shared && npm run build --workspace=apps/api && npm run build --workspace=apps/web",
+    "typecheck": "npm run typecheck --workspace=packages/shared && npm run typecheck --workspace=apps/api && npm run typecheck --workspace=apps/web",
+    "lint": "npm run lint --workspace=apps/web"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "private": "true",
-  "workspaces": ["apps/*", "packages/*"]
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
 }
