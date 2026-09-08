@@ -1,0 +1,128 @@
+[
+  {
+    "id": "iphone-17",
+    "name": "iPhone 17",
+    "brand": "Apple",
+    "category": "smartphone",
+    "images": [
+      "https://placehold.co/600x600?text=iPhone+17",
+      "https://placehold.co/600x600?text=iPhone+17+Back"
+    ],
+    "basePrice": 79900,
+    "variants": [
+      { "id": "iphone-17-128gb-black", "label": "128GB · Black", "priceDelta": 0, "inStock": true },
+      { "id": "iphone-17-256gb-blue", "label": "256GB · Blue", "priceDelta": 10000, "inStock": true }
+    ],
+    "specs": [
+      { "label": "Display", "value": "6.3-inch Super Retina XDR" },
+      { "label": "Chip", "value": "A19" },
+      { "label": "Battery", "value": "Up to 30 hours video playback" },
+      { "label": "Camera", "value": "48MP Dual Fusion system" }
+    ]
+  },
+  {
+    "id": "iphone-17-pro-max",
+    "name": "iPhone 17 Pro Max",
+    "brand": "Apple",
+    "category": "smartphone",
+    "images": [
+      "https://placehold.co/600x600?text=iPhone+17+Pro+Max",
+      "https://placehold.co/600x600?text=iPhone+17+Pro+Max+Back"
+    ],
+    "basePrice": 159900,
+    "variants": [
+      { "id": "iphone-17-pro-max-256gb", "label": "256GB · Titanium", "priceDelta": 0, "inStock": true },
+      { "id": "iphone-17-pro-max-512gb", "label": "512GB · Titanium", "priceDelta": 20000, "inStock": true }
+    ],
+    "specs": [
+      { "label": "Display", "value": "6.9-inch Super Retina XDR with ProMotion" },
+      { "label": "Chip", "value": "A19 Pro" },
+      { "label": "Battery", "value": "Up to 37 hours video playback" },
+      { "label": "Camera", "value": "48MP Pro Fusion triple system" }
+    ]
+  },
+  {
+    "id": "galaxy-s25-ultra",
+    "name": "Samsung Galaxy S25 Ultra",
+    "brand": "Samsung",
+    "category": "smartphone",
+    "images": [
+      "https://placehold.co/600x600?text=Galaxy+S25+Ultra",
+      "https://placehold.co/600x600?text=Galaxy+S25+Ultra+Back"
+    ],
+    "basePrice": 129999,
+    "variants": [
+      { "id": "galaxy-s25-ultra-256gb-black", "label": "256GB · Black", "priceDelta": 0, "inStock": true },
+      { "id": "galaxy-s25-ultra-512gb-gray", "label": "512GB · Gray", "priceDelta": 15000, "inStock": true }
+    ],
+    "specs": [
+      { "label": "Display", "value": "6.9-inch QHD+ AMOLED, 120Hz" },
+      { "label": "Chip", "value": "Snapdragon 8 Elite" },
+      { "label": "Battery", "value": "5000mAh" },
+      { "label": "Camera", "value": "200MP quad rear system" }
+    ]
+  },
+  {
+    "id": "oneplus-15",
+    "name": "OnePlus 15",
+    "brand": "OnePlus",
+    "category": "smartphone",
+    "images": [
+      "https://placehold.co/600x600?text=OnePlus+15",
+      "https://placehold.co/600x600?text=OnePlus+15+Back"
+    ],
+    "basePrice": 64999,
+    "variants": [
+      { "id": "oneplus-15-256gb-sand-storm", "label": "256GB · Sand Storm", "priceDelta": 0, "inStock": true },
+      { "id": "oneplus-15-512gb-storm-blue", "label": "512GB · Storm Blue", "priceDelta": 5000, "inStock": true }
+    ],
+    "specs": [
+      { "label": "Display", "value": "6.78-inch AMOLED, 120Hz" },
+      { "label": "Chip", "value": "Snapdragon 8 Elite" },
+      { "label": "Battery", "value": "7300mAh silicon-carbon" },
+      { "label": "Camera", "value": "50MP Hasselblad triple system" }
+    ]
+  },
+  {
+    "id": "pixel-10",
+    "name": "Google Pixel 10",
+    "brand": "Google",
+    "category": "smartphone",
+    "images": [
+      "https://placehold.co/600x600?text=Pixel+10",
+      "https://placehold.co/600x600?text=Pixel+10+Back"
+    ],
+    "basePrice": 74999,
+    "variants": [
+      { "id": "pixel-10-128gb-obsidian", "label": "128GB · Obsidian", "priceDelta": 0, "inStock": true },
+      { "id": "pixel-10-256gb-porcelain", "label": "256GB · Porcelain", "priceDelta": 8000, "inStock": true }
+    ],
+    "specs": [
+      { "label": "Display", "value": "6.3-inch Actua OLED, 120Hz" },
+      { "label": "Chip", "value": "Google Tensor G5" },
+      { "label": "Battery", "value": "4970mAh" },
+      { "label": "Camera", "value": "50MP triple rear system" }
+    ]
+  },
+  {
+    "id": "macbook-air-m4",
+    "name": "MacBook Air (M4)",
+    "brand": "Apple",
+    "category": "laptop",
+    "images": [
+      "https://placehold.co/600x600?text=MacBook+Air+M4",
+      "https://placehold.co/600x600?text=MacBook+Air+M4+Side"
+    ],
+    "basePrice": 99900,
+    "variants": [
+      { "id": "macbook-air-m4-13-256gb", "label": "13-inch · 256GB", "priceDelta": 0, "inStock": true },
+      { "id": "macbook-air-m4-13-512gb", "label": "13-inch · 512GB", "priceDelta": 20000, "inStock": true }
+    ],
+    "specs": [
+      { "label": "Display", "value": "13.6-inch Liquid Retina" },
+      { "label": "Chip", "value": "Apple M4" },
+      { "label": "Battery", "value": "Up to 18 hours" },
+      { "label": "Ports", "value": "MagSafe 3, 2x Thunderbolt 4" }
+    ]
+  }
+]
