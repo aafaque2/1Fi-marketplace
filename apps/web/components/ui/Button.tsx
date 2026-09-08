@@ -37,7 +37,7 @@ export function Button({
       type="button"
       disabled={isDisabled}
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all ${variantStyles[variant]} ${sizeStyles[size]} ${
+      className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl font-medium transition-all ${variantStyles[variant]} ${sizeStyles[size]} ${
         isDisabled ? 'cursor-not-allowed opacity-50' : 'active:scale-[0.98]'
       }`}
     >

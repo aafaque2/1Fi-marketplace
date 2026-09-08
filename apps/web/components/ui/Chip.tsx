@@ -17,7 +17,7 @@ export function Chip({ label, selected = false, disabled = false, onClick }: Chi
         selected
           ? 'border-brand-600 bg-brand-600 text-white'
           : 'border-neutral-300 bg-white text-neutral-700 hover:border-brand-400'
-      } ${disabled ? 'cursor-not-allowed opacity-50' : 'active:scale-95'}`}
+      } ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer active:scale-95'}`}
     >
       {label}
     </button>

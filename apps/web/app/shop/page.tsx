@@ -37,12 +37,15 @@ const options = [
 
 export default function ShopPage() {
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-4 px-4 py-8">
-      <h1 className="text-2xl font-semibold text-neutral-900">Shop</h1>
+    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-5 px-4 py-8 sm:px-6">
+      <div className="flex flex-col gap-1">
+        <h1 className="text-2xl font-semibold text-neutral-900">Shop</h1>
+        <p className="text-sm text-neutral-500">Brands, stores and 0% EMI marketplace</p>
+      </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {options.map((option) => (
           <Link key={option.href} href={option.href} className="block">
-            <Card className="flex h-full flex-col items-start gap-3 p-5 transition-all hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-md">
+            <Card className="flex h-full flex-col items-start gap-3 p-6 transition-all hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-md">
               <span className="text-brand-600">{option.icon}</span>
               <span className="text-base font-semibold text-neutral-900">{option.title}</span>
               <span className="text-sm text-neutral-500">{option.subtitle}</span>

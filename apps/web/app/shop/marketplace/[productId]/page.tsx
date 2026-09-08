@@ -24,11 +24,17 @@ export default function ProductDetailPage({
 
   if (isLoading) {
     return (
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-4 px-4 py-8">
-        <Skeleton className="aspect-square w-full" />
-        <Skeleton className="h-6 w-2/3" />
-        <Skeleton className="h-5 w-1/3" />
-        <Skeleton className="h-10 w-full" />
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          <Skeleton className="aspect-square w-full" />
+          <div className="flex flex-col gap-3">
+            <Skeleton className="h-4 w-1/4" />
+            <Skeleton className="h-8 w-3/4" />
+            <Skeleton className="h-7 w-1/3" />
+            <Skeleton className="h-10 w-full" />
+          </div>
+        </div>
+        <Skeleton className="h-32 w-full" />
       </main>
     );
   }
@@ -55,29 +61,44 @@ export default function ProductDetailPage({
 
   const selected = product.variants.find((v) => v.id === selectedId) ?? product.variants[0];
   const price = product.basePrice + selected.priceDelta;
+  // Each product seeds images in variant order, so the photo follows the selection.
+  const selectedIndex = Math.max(
+    0,
+    product.variants.findIndex((v) => v.id === selected.id),
+  );
+  const image = product.images[selectedIndex] ?? product.images[0];
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl animate-fade-in flex-1 flex-col gap-4 px-4 py-8">
-      <Image
-        src={product.images[0]}
-        alt={product.name}
-        width={600}
-        height={600}
-        className="aspect-square w-full rounded-2xl object-cover"
-      />
-      <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-        {product.brand}
-      </p>
-      <h1 className="text-2xl font-semibold text-neutral-900">{product.name}</h1>
-      <PriceTag amount={price} size="lg" />
-      <VariantSelector
-        variants={product.variants}
-        selectedId={selected.id}
-        onSelect={setSelectedId}
-      />
+    <main className="mx-auto flex w-full max-w-5xl animate-fade-in flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
+      <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+        <Image
+          key={selected.id}
+          src={image}
+          alt={`${product.name} — ${selected.label}`}
+          width={600}
+          height={600}
+          className="aspect-square w-full animate-fade-in rounded-2xl bg-neutral-50 object-contain"
+        />
+        <div className="flex flex-col items-start gap-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-700">
+            {product.brand}
+          </p>
+          <h1 className="text-3xl font-semibold text-neutral-900">{product.name}</h1>
+          <PriceTag amount={price} size="lg" />
+          <p className="text-sm font-medium text-neutral-700">Choose a variant</p>
+          <VariantSelector
+            variants={product.variants}
+            selectedId={selected.id}
+            onSelect={setSelectedId}
+          />
+          <p className="text-xs text-neutral-500">
+            {selected.label} · {selected.inStock ? 'In stock' : 'Out of stock'}
+          </p>
+        </div>
+      </div>
       <dl className="flex flex-col divide-y divide-neutral-200 rounded-2xl border border-neutral-200">
         {product.specs.map((spec) => (
-          <div key={spec.label} className="flex justify-between gap-4 px-4 py-3">
+          <div key={spec.label} className="flex justify-between gap-4 px-5 py-3.5">
             <dt className="text-sm text-neutral-500">{spec.label}</dt>
             <dd className="text-right text-sm font-medium text-neutral-900">{spec.value}</dd>
           </div>
