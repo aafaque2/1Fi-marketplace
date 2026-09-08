@@ -23,7 +23,7 @@ export class ApiClientError extends Error {
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(`${API_BASE_URL}${path}`, init);
+    res = await fetch(`${API_BASE_URL}${withSimulateError(path)}`, init);
   } catch (error) {
     throw new ApiClientError(
       error instanceof Error ? error.message : 'Network request failed',
@@ -42,6 +42,20 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     throw new ApiClientError(envelope.error.message, res.status, envelope.error.code);
   }
   return envelope.data;
+}
+
+/**
+ * Forwards `?simulateError=true` from the page URL to the API request so the
+ * frontend's error states can be triggered on demand (SPEC.md §5, §13).
+ * Browsers can't set request headers from the URL bar, which is what the
+ * API's query-flag variant is for. No-op during SSR and when the flag is
+ * absent.
+ */
+function withSimulateError(path: string): string {
+  if (typeof window === 'undefined') return path;
+  const flag = new URLSearchParams(window.location.search).get('simulateError');
+  if (flag !== 'true' || path.includes('simulateError=')) return path;
+  return `${path}${path.includes('?') ? '&' : '?'}simulateError=true`;
 }
 
 export function getProducts(category?: string): Promise<Product[]> {
