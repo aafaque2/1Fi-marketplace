@@ -9,7 +9,12 @@ import { productsRouter } from './routes/products';
 const app = express();
 const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
 
-app.use(cors({ origin: process.env.CORS_ORIGIN ?? true }));
+// Render env values are easy to mistype with a trailing slash
+// (`https://app.vercel.app/`), which browsers never send in the Origin
+// header — an exact-match CORS comparison would then fail every request.
+const corsOrigin = process.env.CORS_ORIGIN?.replace(/\/+$/, "") || true;
+
+app.use(cors({ origin: corsOrigin }));
 app.use(express.json());
 
 // Simulated network behavior on every route (SPEC.md §5).
