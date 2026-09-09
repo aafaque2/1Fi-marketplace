@@ -8,26 +8,40 @@ covering the full browse → product detail → EMI plan → review/confirm flow
 mock catalog of flagship phones and one laptop. Everything past the order button —
 eligibility checks, fund pledging, payments — is intentionally mocked.
 
+## Live links
+
+- **Storefront:** https://1fi-marketplace-feat.vercel.app/shop/marketplace
+- **Mock API:** https://onefi-marketplace-lcaw.onrender.com/api/products
+- **Demo walkthrough (video):** https://www.youtube.com/watch?v=H1twU-LKS0g
+
+Render's free tier sleeps when idle, so the first API request after a while can take
+30–50s — that's the platform, not the app. Deployment notes (Vercel + Render env vars,
+build commands) live in [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## How to run it
 
-Three workspaces, all commands from the repo root. Start the API first — the web app
-reads its URL from the environment.
+Three npm workspaces; all commands from the repo root. The web app reads the API URL
+from the environment, so start the API first.
 
 ```bash
 npm install
 
 # Terminal 1 — mock API on http://localhost:4000
+# (builds shared + api, then serves the compiled output with auto-restart)
 npm run dev -w apps/api
 
 # Terminal 2 — Next.js storefront (needs the API up)
 NEXT_PUBLIC_API_BASE_URL=http://localhost:4000 npm run dev -w apps/web
 ```
 
+Or `npm run dev` from the root to build `packages/shared` once and run the API and
+the storefront side by side. `npm run build`, `npm run typecheck`, and `npm run lint`
+(all from the root) cover every workspace.
+
 The shared package (`packages/shared`) holds the framework-agnostic types and the
-0%-interest EMI engine; both apps consume its compiled `dist/` output, so build it
-before the others if you ever clean the tree: `npm run build -w packages/shared`.
-Per-workspace checks: `npm run typecheck -w packages/shared`, `npx tsc --noEmit -p
-apps/api/tsconfig.json`, and inside `apps/web`, `npx tsc --noEmit` plus `npx eslint`.
+0%-interest EMI engine; both apps consume its compiled `dist/` output. The API has no
+runtime TypeScript dependency — its dev script serves the compiled server the same way
+production does.
 
 ## Assumptions (SPEC-silent areas)
 
@@ -43,20 +57,24 @@ apps/api/tsconfig.json`, and inside `apps/web`, `npx tsc --noEmit` plus `npx esl
   error state.
 - **Card EMI figure:** the listing card's "EMI from" line uses the 24-month plan from
   the same shared EMI engine the API uses, computed off `basePrice`.
-- **Toolchain gaps left for later:** `ts-node-dev` (Phase 0) can't boot under the
-  installed TypeScript 6 defaults, so the API is verified via its compiled `dist/`
-  output; root `typecheck`/`lint` scripts don't exist yet (a Phase 9 job), so each
-  workspace is checked individually. The `tailwind.config.ts` token file is loaded
-  into the Tailwind v4 pipeline via `@config` in `globals.css`.
+- **Product photos:** catalog imagery is served locally from `public/images` — a mix of
+  official product renders and freely licensed photos. Freely licensed photos don't
+  exist in every SPEC colorway, so a photo may show a different finish than the
+  variant label; sources are credited in `apps/web/public/images/ATTRIBUTION.md`.
 
 ## What I'd do with more time
 
-- Real device/browser pass at 375px and 1280px (layout here was reviewed statically),
-  plus keyboard and screen-reader review of the radio-card controls.
-- A loading skeleton that mirrors the card layout instead of plain blocks, and image
-  `sizes` tuning for the product grid.
-- API integration tests (supertest) covering the envelope shape, the 5% failure path
-  with the randomness injected, and the checkout validation branches.
-- Formalize the `@1fi/shared` dependency in the app `package.json` files instead of
-  relying on workspace hoisting, and replace the API dev runner so `npm run dev`
-  works uniformly everywhere.
+- **UX polish and attention to detail:** micro-interactions on add-to-flow transitions,
+  an animated EMI tenure slider with live monthly-amount updates, skeleton shimmer
+  tuning, empty-cart/wishlist states, and a full 375px → 1280px responsive pass with
+  keyboard and screen-reader review of the radio-card controls.
+- **Richer motion:** page-transition choreography between listing → detail → EMI →
+  review, spring-based image gallery swipes on the detail page, and animated price
+  count-ups when switching variants.
+- **Real database:** the API is already shaped for it — swap `products.json` for
+  Postgres (Supabase/Neon) with a tiny schema (`products`, `variants`, `orders`),
+  keep the `ApiEnvelope` contract untouched so the frontend doesn't change, and
+  persist checkouts instead of returning a mock `orderId`. The shared types map
+  1:1 to table rows, so this is a weekend-sized job.
+- **API integration tests** (supertest) covering the envelope shape, the 5% failure
+  path with the randomness injected, and the checkout validation branches.
