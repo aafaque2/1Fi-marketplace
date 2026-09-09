@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@1fi/shared": ["../../packages/shared/dist/index"]
     }
   },
   "include": [
